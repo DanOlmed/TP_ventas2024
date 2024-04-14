@@ -1,0 +1,5 @@
+01,Teclado,3,4500
+02,Mouse,4,6000
+03,Monitor,2,14000
+04,Mother,4,30000
+05,Cooler,2,500
