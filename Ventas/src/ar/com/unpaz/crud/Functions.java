@@ -13,7 +13,7 @@ public interface Functions {
 	List<Detalle> getListaDetalles();
 	
 	List<Producto> getListaProductos();
-	List<Informe> getListaInforme();
+	List<Informe> getListaInformes();
 	
 	
 
