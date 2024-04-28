@@ -208,6 +208,7 @@ public class LeerArchivosRepositorio implements Functions {
 					if(clientes.getId().equals(ventas.getCliente().getId())&&ventas.getId().equals(detalles.getVenta().getId())){
 						Informe inf = new Informe(clientes,detalles,ventas);
 						infList.add(inf);
+						//Prueba de testeo para la rama TEST
 					}
 				}
 			}
