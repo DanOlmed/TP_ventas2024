@@ -190,62 +190,56 @@ public class LeerArchivosRepositorio implements Functions {
 		return sListProducto;
 	}
 	
-	public List<Informe> getListaInforme(){
+	public List<Informe>getListaInformes(){
+		List<Informe>infList = new ArrayList<Informe>();
 		
-		List<Informe> sListInforme = new ArrayList<Informe>();
-		//Aqui va la ruta específica de los archivos a leer
-		File clientesFile = new File("C:\\Users\\giser\\OneDrive\\Escritorio\\TP_Ventas\\cliente.txt");
-		File ventasFile = new File("C:\\Users\\giser\\OneDrive\\Escritorio\\TP_Ventas\\venta.txt");
-		File detalleFile = new File("C:\\Users\\giser\\OneDrive\\Escritorio\\TP_Ventas\\detalle.txt");
+		List<Detalle>sDetalle=new ArrayList<Detalle>();
+		List<Venta>sVenta=new ArrayList<Venta>();
+		List<Cliente>sCliente=new ArrayList<Cliente>();
+		sVenta=getListaVentas();
+		sCliente=getListaClientes();
+		sDetalle=getListaDetalles();
 		
-		FileReader clientesReader;
-		FileReader ventasReader;
-		FileReader detalleReader;
+		//Informe inf = new Informe();
 		
-		try {
-			clientesReader = new FileReader (clientesFile);
-			BufferedReader sBufferReader = new BufferedReader(clientesReader);
-			ventasReader = new FileReader (ventasFile);
-			BufferedReader sBufferReader2 = new BufferedReader(ventasReader);
-			detalleReader = new FileReader (detalleFile);
-			BufferedReader sBufferReader3 = new BufferedReader(detalleReader);
-			
-			String linea = "";
-			while((linea = sBufferReader.readLine()) != null) {
-				String data [] = linea.split(",");
-				Informe sInforme = new Informe();
-				
-				sInforme.setCliente(new Cliente(data[0])); 
-				sInforme.setDetalle(new Detalle(data[1]));
-				sInforme.setVentas(new Venta(data[2]));
-				
-				sListInforme.add(sInforme);
-				
+		for(Cliente clientes:sCliente) {
+			for(Detalle detalles:sDetalle) {
+				for(Venta ventas: sVenta) {
+					if(clientes.getId().equals(ventas.getCliente().getId())&&ventas.getId().equals(detalles.getVenta().getId())){
+						Informe inf = new Informe(clientes,detalles,ventas);
+						infList.add(inf);
+						//Prueba de testeo para la rama TEST
+					}
+				}
 			}
-			if (sBufferReader != null) {
-				   try {
-					   sBufferReader.close();
-					   sBufferReader2.close();
-					   sBufferReader3.close();
-					   } 
-					   catch (IOException e) {
-					    e.printStackTrace();
-					   }
-					  }
-		
-					 
 			
 		}
-		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+				
 			
+		return infList;
 		
-		return sListInforme;
 	}
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
 		
 		
 	}

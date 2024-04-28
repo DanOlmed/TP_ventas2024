@@ -44,7 +44,9 @@ public class Main {
 				case 4:{ listadoDetalles();
 					break;}
 				case 5: {
-					listadoInforme();
+					System.out.println("***INFORME FINAL***");
+					informeFinal();
+					
 					break;
 				}
 				
@@ -94,14 +96,16 @@ public class Main {
 		}
 		
 	}
-	public static void listadoInforme() {
+	public static void informeFinal() {
 		LeerArchivosServicio servicio = new LeerArchivosServicio();
-		List<Informe> listaInformes = new ArrayList<Informe>();
-		listaInformes = servicio.getListaInforme();
-		System.out.println("***Informe de ventas por clientes***\n");
-		for(Informe informe : listaInformes) {
-			informe.informeToString();
+		List<Informe>listaInformes = new ArrayList<Informe>();
+		listaInformes = servicio.getListaInformes();
+		for(Informe inf : listaInformes) {
+			inf.mostrarInforme();
 		}
+		
 	}
+	
+	
 
 }

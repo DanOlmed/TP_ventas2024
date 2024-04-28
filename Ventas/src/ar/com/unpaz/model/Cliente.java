@@ -45,7 +45,7 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 	public void clienteString() {
-		System.out.println("ID: "+this.id+" Nombre: "+this.nombre+" Apellido: "+this.apellido+ " Telefono: "+this.telefono);
+		System.out.println("ID: "+this.getId()+" Nombre: "+this.getNombre()+" Apellido: "+this.getApellido()+ " Telefono: "+this.getTelefono());
 	}
 	
 }

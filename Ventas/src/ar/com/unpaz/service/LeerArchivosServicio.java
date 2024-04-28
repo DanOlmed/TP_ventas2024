@@ -31,13 +31,14 @@ public class LeerArchivosServicio implements Functions{
 		sListP = repo.getListaProductos();
 		return sListP;
 	}
-	
-	public List<Informe> getListaInforme(){
+	public List<Informe> getListaInformes() {
 		LeerArchivosRepositorio repo = new LeerArchivosRepositorio();
-		List<Informe> sListI = new ArrayList<Informe>();
-		sListI=repo.getListaInforme();
-		return sListI;
+		List<Informe>sInf = new ArrayList<Informe>();
+		sInf=repo.getListaInformes();
+		return sInf;
 	}
+	
+	
 	
 	
 }
